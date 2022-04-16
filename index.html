@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-image: url('hacker.png');
+        background-size: 1596px 1200px;
+        background-repeat: no-repeat;
+        padding-left: none;
+        background-position: center;
+
+
+
+    }
+
+    .end {
+        color: rgba(9, 9, 48, 0.87);
+        border: 2px solid darkblue;
+        width: 320px;
+        padding: 10px;
+        border-radius: 20px;
+        margin-top: 5px;
+        margin-right: 50px;
+        background-color: #ffffff10;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .yes {
+        color: rgba(9, 9, 48, 0.87);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+
+    }
+
+    .end:hover {
+        border: 2px solid #000;
+        color: rgb(0, 0, 0);
+        background-color: rgba(240, 230, 230, 0.377);
+    }
+
+    textarea:hover {
+        border: 2px solid #000;
+        color: rgb(0, 0, 0);
+        background-color: rgba(240, 230, 230, 0.377);
+    }
+
+
+    .not {
+
+        text-align: left;
+        padding: 10px;
+        font-size: large;
+    }
+
+    textarea {
+        outline: none;
+        resize: none;
+        overflow: auto;
+        border-radius: 10px;
+        border: 2px solid purple;
+        background-color: #ffffff10;
+        backdrop-filter: blur(120px);
+        -webkit-backdrop-filter: blur(120px);
+        padding: 10px;
+
+
+    }
+
+    .btn:hover {
+        background-color: #9188b6;
+        color: rgb(252, 252, 252);
+    }
+
+    .btn {
+        border: 2px solid #002236;
+        background-color: #25257c;
+        color: rgb(255, 255, 255);
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-shadow: #002236 1px 1px;
+    }
+
+    .cash {
+        color: rgb(11, 6, 26);
+        font-style: italic;
+        text-decoration: double;
+        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        font-size: large;
+
+
+    }
+
+
+    .column2 {
+        float: left;
+        width: 50%;
+        padding-left: 500px;
+
+
+
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .column {
+        flex: 50%;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <h1 class="yes">CROYPTOGRAPHIC ENCRYPTION </h1>
+    <h2 class="yes">FEEL SAFE IN PUBLIC!!!</h2>
+
+
+
+    <div class="row">
+        <div class="column">
+            <div class="not end">
+
+                <span> Cryptography with Python</span><br><br>
+                <span>1. Cryptography is the art of communication between two users via coded messages. </span><br><br>
+
+                <span>The science of cryptography emerged with the basic motive of providing security to the
+                    confidential messages
+                    transferred from one party to another. </span><br><br>
+                <span> 2. Cryptography is defined as the art and science of concealing the message to introduce privacy
+                    and secrecy
+                    as recognized in information security.
+                </span><br><br>
+                <span>3. Terminologies of Cryptography
+                    The frequently used terms in cryptography are explained here − </span><br><br>
+                <span> a. Plain Text
+                    The plain text message is the text which is readable and can be understood by all users. The plain
+                    text is
+                    the message which undergoes cryptography. </span><br><br>
+                <span> b. Cipher Text
+                    Cipher text is the message obtained after applying cryptography on plain text.</span><br><br>
+                <span> c. Encryption
+                    The process of converting plain text to cipher text is called encryption. It is also called as
+                    encoding.
+                </span><br><br>
+                <span> d. Decryption
+                    The process of converting cipher text to plain text is called decryption. It is also termed as
+                    decoding.</span><br><br>
+
+
+            </div>
+        </div>
+        <div class="column2">
+            <div class="cash">
+                <span> SENDER </span><button type="button" class="btn" onclick="encrypt()">Encode</button><br><br>
+                <span><textarea placeholder="Remember, be nice!" name="INFORMATION1" id="INFORMATION1" cols="50"
+                        rows="10"></textarea></span><br><br>
+                <span> HACKER </span><br><br>
+                <span><textarea placeholder="Remember, be nice!" name="INFORMATION2" id="INFORMATION2" cols="50"
+                        rows="10"></textarea></span><br><br>
+                <span> RECEIVER </span><button type="button" class="btn" onclick="decrypt()">Decode</button><br><br>
+                <span><textarea placeholder="Remember, be nice!" name="INFORMATION3" id="INFORMATION3" cols="50"
+                        rows="10"></textarea></span><br><br>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+function encrypt() {
+    const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById('INFORMATION2').value = this.responseText;
+  }
+  xhttp.open("GET", "http://localhost:8080/encode/" + document.getElementById("INFORMATION1").value);
+  xhttp.send();
+}
+
+function decrypt() {
+    const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById('INFORMATION3').value = this.responseText;
+  }
+  xhttp.open("GET", "http://localhost:8080/decode/" + document.getElementById("INFORMATION2").value);
+  xhttp.send();
+}
+
+</script>
+</html>
