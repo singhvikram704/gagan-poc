@@ -1,5 +1,4 @@
-# Get Course Pricing - Springboot- Assignment
-
+# Encode decode
 ## Requirements
 
 For building and running the application you need:
